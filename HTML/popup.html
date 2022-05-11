@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>Hot Now</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class = popup>
+            <div class = "top_text">
+                <p>Today Hot Light Hour</p>
+            </div>
+            <div class="main"></div>
+            <div class = "main_text">
+                <p><span>HOT NOW</span> 등의 켜지고 따뜻하고 달콤한 도넛이 나오는 시간입니다.</p>
+                <p>현재 <span class="main_t_num">1</span>개의 매장에 <span>HOT NOW</span> 등이 켜졌습니다.</p>
+            </div>
+            <div class = "day_time_select">
+                <div class ="today_time">
+                    <h2 id ="today_text">5/11(수)</h2>
+                    <h2 class ="date_time_red" id = "date_time_red">00:00</h2>
+                </div>
+                <div class ="input_time">
+                    <form>
+                        <select name = "sel_time_li" id = "sel_time_li">
+                            <option value="7" selected>7:00</option>
+                            <option value="8">8:00</option>
+                            <option value="9">9:00</option>
+                            <option value="10">10:00</option>
+                            <option value="11">11:00</option>
+                            <option value="12">12:00</option>
+                            <option value="13">13:00</option>
+                            <option value="14">14:00</option>
+                            <option value="15">15:00</option>
+                            <option value="16">16:00</option>
+                            <option value="17">17:00</option>
+                            <option value="18">18:00</option>
+                            <option value="19">19:00</option>
+                            <option value="20">20:00</option>
+                            <option value="21">21:00</option>
+                            <option value="22">22:00</option>
+                            <option value="23">23:00</option>
+                            <option value="24">24:00</option>
+                        </select>
+                    </form>
+                   <img onclick = "enter_btn_click()" id="enter_btn" src="imges/btn_enter.png" alt="확인버튼">
+                </div>
+            </div>
+            <div class = "contents">
+                <div class = "sto_photo">
+                    <img class="sto_img" src = "imges/-.jpg" alt="수원인계점" width="200" height="150">
+                </div>
+                <div class = "sto_title">
+                    <ul>
+                        <li class = "sto_tit_text" id ="sto_tit_text">김해봉황점</li>
+                        <li class = "sto_time_text" id ="sto_time_text">11:00-13:00</li>
+                        <li><a href=""><img src="imges/btn_go.png" alt ="바로가기버튼"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+            //오늘 날짜와 현재 시간 출력 
+            var today = new Date()
+            var current_time = new Date()
+            document.getElementById("today_text").innerHTML = ( today.getMonth()+1 +'/'+ today.getDate() )  //오늘날짜
+            document.getElementById("date_time_red").innerHTML = (today.getHours() +':'+ today.getMinutes())  //현재시간
+            
+
+            function enter_btn_click(){  // 시간 선택 후 확인 버튼 클릭시 실행
+                document.getElementById("sto_tit_text").innerHTML="인계점"
+                select_val = document.getElementsByName("sel_time_li").values;
+                sel_time_li()
+            }
+            function sel_time_li(){  //선택한 시간이 text에 출력
+                var forms = document.forms[0];
+                document.getElementById("date_time_red").innerHTML = forms.sel_time_li.options[forms.sel_time_li.selectedIndex].text;
+            }
+            
+
+        </script>
+    </body>
+</html>
